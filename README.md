@@ -1,4 +1,4 @@
-# Cos'è MadmanProj?
+# Cos'è Dari&Dali?
 E' la repository del **progetto Unity** del corso di "**Gamification e Game Design**" dell'**Università "La Sapienza" di Roma**, anno accademico 2018/19.
 
 # Come scaricare la repository
@@ -17,7 +17,7 @@ E' più semplice a farsi che a dirsi! 😏
 2) Scarichiamo la repository!
 	- Da terminale naviga nella cartella dove vuoi clonare quella del progetto e lancia il comando:
 		``` 
-		git clone https://github.com/rom42pla/MadmanProj.git 
+		git clone https://github.com/rom42pla/DariAndDali.git 
 		```
 	- Inserisci le tue credenziali di GitHub.
 	

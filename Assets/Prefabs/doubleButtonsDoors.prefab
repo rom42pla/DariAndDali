@@ -4908,11 +4908,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5768476729200112614}
     m_Modifications:
-    - target: {fileID: 1644004193205005374, guid: f40a752810201324f8936e1f084b8280,
-        type: 3}
-      propertyPath: m_Name
-      value: button2
-      objectReference: {fileID: 0}
     - target: {fileID: 1795073282346641544, guid: f40a752810201324f8936e1f084b8280,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4968,7 +4963,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1644004193205005374, guid: f40a752810201324f8936e1f084b8280,
+        type: 3}
+      propertyPath: m_Name
+      value: button2
+      objectReference: {fileID: 0}
     - target: {fileID: 7044616787169880328, guid: f40a752810201324f8936e1f084b8280,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110039538397048430, guid: f40a752810201324f8936e1f084b8280,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -5004,6 +5009,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5768476729200112614}
     m_Modifications:
+    - target: {fileID: 8728072959953982242, guid: f723949b5a95ee64c82b6f84fd708613,
+        type: 3}
+      propertyPath: m_Name
+      value: door2
+      objectReference: {fileID: 0}
     - target: {fileID: 8582054000693843860, guid: f723949b5a95ee64c82b6f84fd708613,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5059,11 +5069,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8728072959953982242, guid: f723949b5a95ee64c82b6f84fd708613,
-        type: 3}
-      propertyPath: m_Name
-      value: door2
-      objectReference: {fileID: 0}
     - target: {fileID: 8728072959953982247, guid: f723949b5a95ee64c82b6f84fd708613,
         type: 3}
       propertyPath: reversedGravity
@@ -5090,11 +5095,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5768476729200112614}
     m_Modifications:
-    - target: {fileID: 1644004193205005374, guid: f40a752810201324f8936e1f084b8280,
-        type: 3}
-      propertyPath: m_Name
-      value: button1
-      objectReference: {fileID: 0}
     - target: {fileID: 1795073282346641544, guid: f40a752810201324f8936e1f084b8280,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5150,7 +5150,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1644004193205005374, guid: f40a752810201324f8936e1f084b8280,
+        type: 3}
+      propertyPath: m_Name
+      value: button1
+      objectReference: {fileID: 0}
     - target: {fileID: 7044616787169880328, guid: f40a752810201324f8936e1f084b8280,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110039538397048430, guid: f40a752810201324f8936e1f084b8280,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -5181,6 +5191,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5768476729200112614}
     m_Modifications:
+    - target: {fileID: 8728072959953982242, guid: f723949b5a95ee64c82b6f84fd708613,
+        type: 3}
+      propertyPath: m_Name
+      value: door1
+      objectReference: {fileID: 0}
     - target: {fileID: 8582054000693843860, guid: f723949b5a95ee64c82b6f84fd708613,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5235,11 +5250,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8728072959953982242, guid: f723949b5a95ee64c82b6f84fd708613,
-        type: 3}
-      propertyPath: m_Name
-      value: door1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f723949b5a95ee64c82b6f84fd708613, type: 3}

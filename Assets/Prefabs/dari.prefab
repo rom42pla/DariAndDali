@@ -192,16 +192,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNo: 1
-  canMove: 1
+  respawnTime: 1
   maxSpeed: 5
   jumpForce: 5
-  leftMovementKey: 276
-  rightMovementKey: 275
   lastCheckpoint: {x: 0, y: 0, z: 0}
   gravity: 9.81
   reversedGravity: 0
   zPos: 0.4
   jumpSFX: {fileID: 8300000, guid: 4391ef29d4e4f234abe683b4af88fb62, type: 3}
+  deathSFX: {fileID: 8300000, guid: 9fc29eb1cd6ad8343aa422ec29bb754f, type: 3}
+  canMove: 1
+  isMoving: 0
+  isJumping: 1
+  isDying: 0
+  direction: 1
 --- !u!143 &-9167215382697695728
 CharacterController:
   m_ObjectHideFlags: 0
@@ -213,8 +217,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.5
-  m_Radius: 0.2
+  m_Height: 1.4
+  m_Radius: 0.1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

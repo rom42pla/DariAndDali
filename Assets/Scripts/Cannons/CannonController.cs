@@ -9,6 +9,7 @@ public class CannonController : MonoBehaviour
     [Header("Cannon settings")]
     public Direction direction = Direction.Left;
     public float missilesPerSecond = 0.5f;
+    public bool reversedGravity = false;
     [Header("Missile settings")]
     public GameObject cannonBall;
     public float missileSpeed = 1f;
@@ -49,9 +50,18 @@ public class CannonController : MonoBehaviour
     public void rotateCannon(){
         /* La rotazione iniziale, rivolto verso sinistra */
         this.transform.rotation = Quaternion.identity;
-        Debug.Log(this.direction == Direction.Up);
-        if(this.direction == Direction.Up) this.transform.Rotate(0, 0, 270, Space.Self);
-        else if(this.direction == Direction.Right) this.transform.Rotate(0, 180, 0, Space.Self);
-        else if(this.direction == Direction.Down) this.transform.Rotate(0, 0, 90, Space.Self);
+        if(!this.reversedGravity){
+            if(this.direction == Direction.Up) this.transform.Rotate(0, 0, 270, Space.Self);
+            else if(this.direction == Direction.Right) this.transform.Rotate(180, 180, 0, Space.Self);
+            else if(this.direction == Direction.Down) this.transform.Rotate(0, 0, 90, Space.Self);
+            else this.transform.Rotate(180, 0, 0, Space.Self);
+        }
+        else{
+            if(this.direction == Direction.Up) this.transform.Rotate(180, 0, 270, Space.Self);
+            else if(this.direction == Direction.Right) this.transform.Rotate(0, 180, 0, Space.Self);
+            else if(this.direction == Direction.Down) this.transform.Rotate(180, 0, 90, Space.Self);
+            else this.transform.Rotate(0, 0, 0, Space.Self);
+        }
+        
     }
 }

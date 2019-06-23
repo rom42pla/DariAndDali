@@ -6,6 +6,7 @@ public class ButtonController : MonoBehaviour
 {
     // La posizione iniziale del bottone
     private Vector3 unclickedPos, clickedPos;
+    private GameObject playerTouching = null;
     // Variabili di stato
     [HideInInspector] public bool isClicked = false;
     [Header("Gravity settings")]
@@ -17,11 +18,7 @@ public class ButtonController : MonoBehaviour
 
     void Start(){
         audioSource = GetComponent<AudioSource>();
-    }
-    void Update(){
-        // Setta la posizione iniziale del bottone
-        if(!this.isClicked){
-            this.unclickedPos = this.transform.position;
+        this.unclickedPos = this.transform.position;
             // Setta la posizione del bottone da premuto
             if(!reversedGravity){
                 this.clickedPos = unclickedPos + new Vector3(0f, -0.10f, 0f);
@@ -29,19 +26,27 @@ public class ButtonController : MonoBehaviour
             else{
                 this.clickedPos = unclickedPos + new Vector3(0f, +0.10f, 0f);
             }
-        }
-        
     }
+    void Update(){
+        if((this.isClicked) && (this.playerTouching.GetComponent<PlayerController>().isDying)){
+            this.isClicked = false;
+            changeStatus();
+        } 
+    }
+
     /* Eseguita nel momento in cui un giocatore entra nel trigger */
     void OnTriggerEnter(Collider coll)
     {
         // Se il bottone viene toccato da un giocatore...
-        if(coll.gameObject.tag == "Player"){
-            // Il bottone entra nello stato "isClicked"
-            isClicked = true;
-            changeStatus();
+        if(coll.gameObject.tag == "Player" && !this.isClicked){
+            if((!this.reversedGravity && coll.gameObject.GetComponent<PlayerController>().playerNo == 1) ||
+            (this.reversedGravity && coll.gameObject.GetComponent<PlayerController>().playerNo == 2)){
+                this.playerTouching = coll.gameObject;
+                // Il bottone entra nello stato "isClicked"
+                isClicked = true;
+                changeStatus();
+            }
         }
-        
     }
     /* Eseguita nel momento in cui un giocatore esce dal trigger */
     void OnTriggerExit(Collider coll)

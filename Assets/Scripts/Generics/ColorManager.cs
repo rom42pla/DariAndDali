@@ -16,7 +16,7 @@ public class ColorManager : MonoBehaviour
     public void colorize(GameObject obj){
         if(obj.GetComponent<Renderer>() != null){
             Renderer rend = obj.GetComponent<Renderer>();
-            rend.material = new Material(Shader.Find("Standard"));
+            rend.material = new Material(Shader.Find("Custom/MobileColor"));
             rend.material.color = color;
         }
     }

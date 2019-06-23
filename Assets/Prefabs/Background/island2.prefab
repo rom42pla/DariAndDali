@@ -105,11 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c087070181dbd644baeb4f4acb362680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionX: -500
-  positionY: -500
-  positionZ: 300
-  rotationDirection: 4
-  rotationSpeed: 5
-  sizeX: 1
-  sizeY: 1
-  sizeZ: 1
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: -360, z: 0}
+  rotationSpeed: 3
+  size: {x: 8, y: 6, z: 3}

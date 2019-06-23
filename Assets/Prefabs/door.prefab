@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reversedGravity: 0
-  speed: 5
-  deltaMovement: 2
+  speed: 10
+  deltaMovement: 4
 --- !u!114 &8728072959953982240
 MonoBehaviour:
   m_ObjectHideFlags: 0

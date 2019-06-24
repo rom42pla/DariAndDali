@@ -27,9 +27,7 @@ public class ButtonHandler : MonoBehaviour
             PlayerPrefs.SetInt("Muted", 0);
 
         }
-
         SetSoundState();
-
     }
 
     private void SetSoundState()
@@ -57,15 +55,11 @@ public class ButtonHandler : MonoBehaviour
     public void Pause(GameObject PauseUI)
     {
         PauseUI.SetActive(true);
-        //transform.parent.gameObject.SetActive(true);
-        Time.timeScale = 0f;
-        print(transform.parent.gameObject.name);
-        print(Time.timeScale);
-        
+        Time.timeScale = 0f;   
     }
+
     public void Resume() {
         transform.parent.gameObject.SetActive(false);
-       
         Time.timeScale = 1f;
     }
 
@@ -73,5 +67,4 @@ public class ButtonHandler : MonoBehaviour
         Vector3 coord = new Vector3(0, 180, 180);
         ui.transform.Rotate(coord);
     }
-
 }

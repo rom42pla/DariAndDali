@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class UIButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [HideInInspector] public bool isPressed = false, scaled = false;
     private Vector3 initialScale, scaleIfPressed;
-    [HideInInspector] public float scaleFactorIfPressed = 0.1f;
+    [HideInInspector] public float scaleFactorIfPressed = 0.95f;
 
     void Start(){
         this.initialScale = this.transform.localScale;
@@ -17,7 +18,6 @@ public class UIButtonController : MonoBehaviour, IPointerDownHandler, IPointerUp
         if(isPressed && !scaled){
             this.transform.localScale = scaleIfPressed;
             this.scaled = true;
-            print("Scaled to " + scaleFactorIfPressed);
         }
         if(!isPressed && scaled){
             this.transform.localScale = initialScale;
@@ -28,8 +28,13 @@ public class UIButtonController : MonoBehaviour, IPointerDownHandler, IPointerUp
     {
         isPressed = true;
     }
- public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerUp(PointerEventData eventData)
     {
         isPressed = false;
+    }
+
+    public void restartScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
     }
 }

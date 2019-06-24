@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - Platform
   - Island
+  - Pause
   layers:
   - Default
   - TransparentFX

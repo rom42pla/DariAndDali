@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour
 {
-    [RangeAttribute(0f, 1f)] public float opacity;
+    [RangeAttribute(0f, 1f)] public float opacity = 0.5f;
     [RangeAttribute(0.1f, 1f)] public float scaleIfPressed = 0.9f;
     private List<GameObject> buttons = new List<GameObject>();
     private List<GameObject> children = new List<GameObject>();
@@ -38,8 +38,14 @@ public class CanvasController : MonoBehaviour
     void updateOpacity(float alpha){
         foreach(GameObject UIComponent in this.children){
             Image image = UIComponent.GetComponent<Image>();
+            UIImageController imageController = UIComponent.GetComponent<UIImageController>();
             if(image != null){
-                image.material.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+                if(imageController != null && imageController.faded){
+                    image.color = new Color(image.color.r, image.color.g, image.color.b, alpha);
+                }
+                else{
+                    image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
+                }
             }
         }
     }
@@ -47,7 +53,6 @@ public class CanvasController : MonoBehaviour
     void updateScaleFactorIfPressed(float scale){
         foreach(GameObject button in this.buttons){
             button.GetComponent<UIButtonController>().scaleFactorIfPressed = scale;
-            print(scale + " - " + button.GetComponent<UIButtonController>().scaleFactorIfPressed);
         }
     }
 }

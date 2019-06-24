@@ -16,9 +16,7 @@ public class CheckSound : MonoBehaviour
                 soundOn.SetActive(true);
                 soundOff.SetActive(false);
             }
-            AudioListener.volume = 1;
-            print("sono entrato" + PlayerPrefs.GetInt("Muted", 0));
-            
+            AudioListener.volume = 1;            
         }
         else
         {
@@ -28,13 +26,6 @@ public class CheckSound : MonoBehaviour
                 soundOff.SetActive(true);
             }
             AudioListener.volume = 0;
-            print("sono entrato" + PlayerPrefs.GetInt("Muted", 0));
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 3
   missilesPerSecond: 0.5
+  reversedGravity: 0
   cannonBall: {fileID: 472739510524201445, guid: 116545abf6647af4591bd3de2daa74a9,
     type: 3}
-  missileSpeed: 1
+  missileSpeed: 2

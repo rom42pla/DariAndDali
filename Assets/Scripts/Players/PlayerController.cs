@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private UIButtonController leftMovementBtn, rightMovementBtn, jumpBtn;
     [HideInInspector] public Vector3 lastCheckpoint;
     public GameObject ground = null;
+    public float jumpTimeThreshold = 0.05f;
     // Variabili di gravità
     [HideInInspector] public float gravity = 9.81f;
     [HideInInspector] public bool reversedGravity = false;
@@ -81,30 +82,36 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = Vector3.zero;
         /* Gestisce il movimento laterale del personaggio */
         if(((leftMovementBtn.isPressed || Input.GetKey(leftMovementKey)) && !reversedGravity) || ((rightMovementBtn.isPressed || Input.GetKey(leftMovementKey)) && reversedGravity)){
+            this.isMoving = true;
             if(!this.reversedGravity){
-                this.spriteRenderer.flipX = false;
+                this.spriteRenderer.flipX = true;
                 if(this.direction != Direction.Left)    this.direction = Direction.Left;
             } else {
                 this.spriteRenderer.flipX = true;
-                if(this.direction != Direction.Right)    this.direction = Direction.Left;
+                if(this.direction != Direction.Right)    this.direction = Direction.Right;
             }            
             direction.x = -maxSpeed;
         }
         else if(((rightMovementBtn.isPressed || Input.GetKey(rightMovementKey)) && !reversedGravity) || ((leftMovementBtn.isPressed || Input.GetKey(rightMovementKey))&& reversedGravity)){
-            direction.x = maxSpeed;
+            this.isMoving = true;
             if(!this.reversedGravity){
-                this.spriteRenderer.flipX = true;
+                this.spriteRenderer.flipX = false;
                 if(this.direction != Direction.Left)    this.direction = Direction.Left;
             } else {
                 this.spriteRenderer.flipX = false;
-                if(this.direction != Direction.Right)    this.direction = Direction.Left;
-            }         
+                if(this.direction != Direction.Right)    this.direction = Direction.Right;
+            }
+            direction.x = maxSpeed;    
+        }
+        else{
+            this.isMoving = false;
         }
         /* Gestisce il salto del personaggio */
         if (!this.isJumping){
             ySpeed = 0;
             if (jumpBtn.isPressed || Input.GetKey(jumpKey)){
                 audioSource.PlayOneShot(this.jumpSFX);
+                this.isJumping = true;
                 if(!reversedGravity){
                     ySpeed = jumpForce;
                 }
@@ -143,9 +150,7 @@ public class PlayerController : MonoBehaviour
         else {     
             this.ground = null;
             this.transform.SetParent(null);
-            if(!this.isJumping){
-                this.isJumping = true;
-            }
+            StartCoroutine(jumpThreshold());
         }
     }
 
@@ -168,10 +173,10 @@ public class PlayerController : MonoBehaviour
     GameObject groundObject(){
         GameObject[] collidedObjects;
         if(!this.reversedGravity){
-            collidedObjects = (from obj in collidedObjectsInBox(0, -this.ySize/2, this.xSize, 0.25f) select obj.gameObject).ToArray();  
+            collidedObjects = (from obj in collidedObjectsInBox(0, -this.ySize/2, this.xSize, 0.4f) select obj.gameObject).ToArray();  
         }
         else{
-            collidedObjects = (from obj in collidedObjectsInBox(0, this.ySize/2, this.xSize, 0.25f) select obj.gameObject).ToArray();
+            collidedObjects = (from obj in collidedObjectsInBox(0, this.ySize/2, this.xSize, 0.4f) select obj.gameObject).ToArray();
         }
         // Ritorna il primo oggetto della lista
         if(collidedObjects.Length != 0){
@@ -212,5 +217,13 @@ public class PlayerController : MonoBehaviour
         this.controller.Move(Vector3.zero);
         this.isDying = false;
         this.gameObject.transform.position = position;
-    }  
+    }
+
+    public IEnumerator jumpThreshold(){
+        yield return new WaitForSeconds(this.jumpTimeThreshold);
+        if(this.ground == null){
+            this.isJumping = true;
+        }
+        
+    }
 }

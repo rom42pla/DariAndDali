@@ -28,11 +28,9 @@ public class LeverController : MonoBehaviour
     {
         // Se la leva viene toccata da un giocatore...
         if(coll.gameObject.tag == "Player"){
-            Debug.Log("KKK");
             // La leva cambia stato
             changeStatus();
-        }
-        
+        } 
     }
 
     /* Cambia lo stato della leva da attiva a non attiva e viceversa */

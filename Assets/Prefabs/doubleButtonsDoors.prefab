@@ -886,7 +886,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 15
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4853,6 +4853,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4908,6 +4909,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5768476729200112614}
     m_Modifications:
+    - target: {fileID: 1644004193205005374, guid: f40a752810201324f8936e1f084b8280,
+        type: 3}
+      propertyPath: m_Name
+      value: button2
+      objectReference: {fileID: 0}
     - target: {fileID: 1795073282346641544, guid: f40a752810201324f8936e1f084b8280,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4962,11 +4968,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1644004193205005374, guid: f40a752810201324f8936e1f084b8280,
-        type: 3}
-      propertyPath: m_Name
-      value: button2
       objectReference: {fileID: 0}
     - target: {fileID: 7044616787169880328, guid: f40a752810201324f8936e1f084b8280,
         type: 3}
@@ -5095,6 +5096,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5768476729200112614}
     m_Modifications:
+    - target: {fileID: 1644004193205005374, guid: f40a752810201324f8936e1f084b8280,
+        type: 3}
+      propertyPath: m_Name
+      value: button1
+      objectReference: {fileID: 0}
     - target: {fileID: 1795073282346641544, guid: f40a752810201324f8936e1f084b8280,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5149,11 +5155,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1644004193205005374, guid: f40a752810201324f8936e1f084b8280,
-        type: 3}
-      propertyPath: m_Name
-      value: button1
       objectReference: {fileID: 0}
     - target: {fileID: 7044616787169880328, guid: f40a752810201324f8936e1f084b8280,
         type: 3}

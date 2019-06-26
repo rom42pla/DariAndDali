@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     [Header("UI settings")]
     public GameObject canvas;
+    public GameObject endLevelPortal;
+    private bool isFadingOut = false;
 
     [Header("Camera settings")]
     public GameObject cameraPrefab;
@@ -112,6 +114,15 @@ public class GameManager : MonoBehaviour
     void Update(){
         // Controlla se i personaggi hanno raggiunto il limite della coordinata Y e, in tal caso, li fa respawnare
         checkYLimit();
+        if(this.endLevelPortal != null){
+            if(this.endLevelPortal.GetComponent<DoubleButtonsDoorsController>().areDoorsOpen && !this.isFadingOut){
+                this.player1Controller.isJoying = true;
+                this.player2Controller.isJoying = true;
+                this.player1Controller.canMove = false;
+                this.player2Controller.canMove = false;
+                StartCoroutine(fade(255, 255, 255));
+            }
+        }
     }
 
     void checkYLimit(){
@@ -145,5 +156,11 @@ public class GameManager : MonoBehaviour
             objController.size = new Vector3(objectSize, objectSize, objectSize);
             Instantiate(obj);
         }
+    }
+
+    public IEnumerator fade(float r, float g, float b){
+        this.isFadingOut = true;
+        /* Implementa qui il fade, deve durare esattamente cinque secondi */
+        yield return null;
     }
 }

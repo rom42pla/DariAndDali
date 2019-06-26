@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSFX, deathSFX;
 
     [Header("Infos")]
-    [HideInInspector] public bool canMove = true, isMoving = false, isJumping = true, isDying = false;
+    [HideInInspector] public bool canMove = true, isMoving = false, isJumping = true, isDying = false, isJoying = false;
     [HideInInspector] public Direction direction = Direction.Right;
 
     void Start()
@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
         this.animator.SetBool("isMoving", this.isMoving);
         this.animator.SetBool("isDying", this.isDying);
         this.animator.SetBool("isJumping", this.isJumping);
+        this.animator.SetBool("isJoying", this.isJoying);
     }
 
     /* Si occupa del movimento del personaggio */

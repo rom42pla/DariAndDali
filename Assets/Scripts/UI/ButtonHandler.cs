@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,10 @@ public class ButtonHandler : MonoBehaviour
 
     public GameObject soundOn;
     public GameObject soundOff;
+    [SerializeField]
+    private float fadeTime = 1;
+
+
     public void Exit()
     {
         Application.Quit();
@@ -63,8 +68,54 @@ public class ButtonHandler : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Reverse(GameObject ui) {
-        Vector3 coord = new Vector3(0, 180, 180);
-        ui.transform.Rotate(coord);
+    public void SelectMenu(GameObject nextMenu) {
+        StartCoroutine(DoFadeOff(nextMenu));
+        
     }
+
+    IEnumerator DoFadeOff(GameObject next)
+    {
+        CanvasGroup myCanvas = transform.parent.gameObject.GetComponent<CanvasGroup>();
+
+        while (myCanvas.alpha > 0f)
+        {
+            myCanvas.alpha -= Time.deltaTime / fadeTime;
+            yield return  null;
+        }
+        
+        StartCoroutine(DoFadeOn(next));
+        //myCanvas.interactable = false;
+        
+        yield return null;        
+    }
+
+
+    IEnumerator DoFadeOn(GameObject next)
+    {
+        
+        CanvasGroup newCanvas = next.GetComponent<CanvasGroup>();
+        newCanvas.alpha = 0;
+
+        next.SetActive(true);
+
+        while (newCanvas.alpha < 1f)
+        {
+            
+            newCanvas.alpha += Time.deltaTime / (fadeTime * 0.9f);
+
+            yield return null;
+        }
+        transform.parent.gameObject.SetActive(false);
+        //newCanvas.interactable = false;
+
+        yield return null;
+
+    }
+
+    IEnumerator Waiter() {
+        print(Time.time);
+        yield return new WaitForSeconds(5);
+        print(Time.time);
+    }
+
 }

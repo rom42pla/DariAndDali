@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\UI\ButtonHandler.cs" />
      <Compile Include="Assets\Scripts\UI\CanvasController.cs" />
      <Compile Include="Assets\Scripts\UI\CheckSound.cs" />
+     <Compile Include="Assets\Scripts\UI\FadeCanvas.cs" />
      <Compile Include="Assets\Scripts\UI\SceneBuilder.cs" />
      <Compile Include="Assets\Scripts\UI\UIButtonController.cs" />
      <Compile Include="Assets\Scripts\UI\UIImageController.cs" />

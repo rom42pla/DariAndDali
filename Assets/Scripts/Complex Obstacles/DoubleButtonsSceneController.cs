@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DoubleButtonsSceneController : MonoBehaviour
 {
-    public int levelIndex = 1;
+    public bool levelEnd = false;
     void FixedUpdate()
     {
-        if(this.gameObject.GetComponent<DoubleButtonsDoorsController>().areDoorsOpen){
-            string newLevel = "Level" + levelIndex;
-            SceneManager.LoadScene(newLevel, LoadSceneMode.Single);
+
+        if (this.gameObject.GetComponent<DoubleButtonsDoorsController>().areDoorsOpen){
+            if (levelEnd) {
+                Animator animator= transform.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<Image>().GetComponent<Animator>();
+                animator.SetTrigger("FadeOut");
+            }
+            
         }
     }
+
 }

@@ -954,6 +954,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1125279226513387562, guid: 916595469ec1dbf449e4758766f1e9ef,
+        type: 3}
+      propertyPath: levelEnd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8728068265211543498, guid: 916595469ec1dbf449e4758766f1e9ef,
+        type: 3}
+      propertyPath: loadScene
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 916595469ec1dbf449e4758766f1e9ef, type: 3}
 --- !u!1 &101576285 stripped
@@ -5073,6 +5083,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1125279226513387562, guid: 916595469ec1dbf449e4758766f1e9ef,
+        type: 3}
+      propertyPath: levelEnd
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5769023711796168987, guid: 916595469ec1dbf449e4758766f1e9ef,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -6686,7 +6701,7 @@ PrefabInstance:
     - target: {fileID: 3364098819245367211, guid: 7378759198f76bb45b07d8ac93567582,
         type: 3}
       propertyPath: spawnPosition.x
-      value: 190
+      value: 189
       objectReference: {fileID: 0}
     - target: {fileID: 3364098819245367211, guid: 7378759198f76bb45b07d8ac93567582,
         type: 3}

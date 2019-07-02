@@ -9,7 +9,6 @@ public class FadeOff : MonoBehaviour
     public int loadScene;
     
     public void OnFadeComplete() {
-        print("On fade complete");
         SceneManager.LoadScene(loadScene);
     }
 

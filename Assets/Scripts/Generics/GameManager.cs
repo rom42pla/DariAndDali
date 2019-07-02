@@ -120,6 +120,8 @@ public class GameManager : MonoBehaviour
                 this.player2Controller.isJoying = true;
                 this.player1Controller.canMove = false;
                 this.player2Controller.canMove = false;
+                this.player1Controller.controller.enabled = false;
+                this.player2Controller.controller.enabled = false;
                 StartCoroutine(fade(255, 255, 255));
             }
         }

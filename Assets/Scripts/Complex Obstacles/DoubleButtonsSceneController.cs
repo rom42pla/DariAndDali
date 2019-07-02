@@ -12,10 +12,8 @@ public class DoubleButtonsSceneController : MonoBehaviour
 
         if (this.gameObject.GetComponent<DoubleButtonsDoorsController>().areDoorsOpen){
             if (levelEnd) {
-                print("livello finito");
                 Animator animator= transform.gameObject.GetComponentInChildren<Canvas>().GetComponentInChildren<Image>().GetComponent<Animator>();
                 animator.SetTrigger("FadeOut");
-                
             }
             
         }

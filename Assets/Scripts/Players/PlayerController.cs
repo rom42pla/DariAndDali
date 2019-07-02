@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public float gravity = 9.81f;
     [HideInInspector] public bool reversedGravity = false;
 
-    private CharacterController controller;
-    private SpriteRenderer spriteRenderer;
+    public CharacterController controller;
+    public SpriteRenderer spriteRenderer;
     private Animator animator;
 
     private float xSize, ySize;
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator moveObject(Vector3 position, float speed){
         // Impedisce al personaggio di muoversi
         this.transform.SetParent(null, true);
-        controller.enabled = false;
+        this.controller.enabled = false;
         this.canMove = false;
         this.isDying = true;
         // Sposta gradualmente il personaggio verso l'ultimo checkpoint
